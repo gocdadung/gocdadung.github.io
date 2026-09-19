@@ -365,15 +365,18 @@ padding: 10px 6px;
 font-size: 0.78rem;
 }
 }
-footer{
+.footer-brand{
 max-width: 960px;
 margin: 0 auto;
-padding: 32px 24px 64px;
+padding: 48px 24px 64px;
 border-top: 1px solid var(--line);
-color: var(--ink-soft);
-font-size: 0.85rem;
+text-align: center;
+font-family: 'Fraunces', serif;
+font-size: 1.4rem;
+font-weight: 500;
+letter-spacing: 0.04em;
+color: var(--clay);
 }
-footer a{ color: var(--clay); }
 </style>
 </head>
 <body>
@@ -403,9 +406,7 @@ footer a{ color: var(--clay); }
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
 </button>
 
-<footer>
-Trang này có chứa liên kết tiếp thị liên kết (affiliate) tới Shopee — khi mua hàng qua đây, mình nhận được một khoản hoa hồng nhỏ mà không phát sinh thêm chi phí cho bạn. Nhớ áp mã giảm giá và mã vận chuyển ở mục Shopee Voucher để có giá tốt nhất nhé. Cảm ơn bạn đã ghé trang!
-</footer>
+<footer class="footer-brand">Góc Đã Dùng</footer>
 
 <script>
 /* ============================================================
@@ -576,13 +577,6 @@ CATEGORIES.forEach((cat, catIndex) => {
     empty.textContent = "Đang cập nhật sản phẩm — quay lại sớm nhé!";
     section.appendChild(empty);
   } else {
-      if (cat.description){
-    const count = document.createElement("p");
-    count.className = "count";
-    count.textContent = cat.description;
-    section.appendChild(count);
-  }
-
     const grid = document.createElement("div");
     grid.className = "grid";
 
@@ -600,8 +594,6 @@ CATEGORIES.forEach((cat, catIndex) => {
           <img src="${item.image}" alt="${item.name}" loading="lazy">
         </a>
         <div class="name">${item.name}</div>
-        ${item.note ? `<div class="note">${item.note}</div>` : ``}
-        <a class="cta" href="${item.link}" target="_blank" rel="noopener sponsored">Xem trên Shopee →</a>
       `;
       grid.appendChild(div);
     });
